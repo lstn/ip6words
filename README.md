@@ -1,4 +1,4 @@
-# ip6words [![Pypi Version][pypi-version-badge]][pypi-version-link] [![Dependency CI][dependency-ci-badge]][dependency-ci-link]
+# ip6words [![Pypi Version][pypi-version-badge]][pypi-version-link] [![Dependency CI][dependency-ci-badge]][dependency-ci-link] [![Apache 2 License][license-badge]][license-link]
 
 Converts IPv6 addresses to and from a user friendly format using words.
 
@@ -42,3 +42,5 @@ use the \[-d] argument and thus always load the wordlist from the dill.
 [pypi-version-link]:	https://pypi.python.org/pypi/ip6words/
 [dependency-ci-badge]:	https://dependencyci.com/github/lstn/ip6words/badge
 [dependency-ci-link]:	https://dependencyci.com/github/lstn/ip6words
+[license-badge]:		https://img.shields.io/badge/license-Apache%202-blue.svg
+[license-link]:			https://raw.githubusercontent.com/lstn/ip6words/master/LICENSE
