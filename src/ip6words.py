@@ -1,4 +1,5 @@
 import sys
+import os
 
 from iwords import dill_words
 import ip_handling
@@ -33,9 +34,48 @@ def main(argv):
         raise Exception("Could not determine the type of IP being queried")
     
 def parse_args(args):
-    ip_to_process = args[0]
+    cmd_opts = {
+        "-d": _delete_dill,
+        "-u": disp_usage,
+        "-h": disp_help,
+    }
+    if(len(args) == 1):
+        cmdarg = cmd_opts.get(args[0], None)
+        if cmdarg is None:
+            ip_to_process = args[0]
+        else:
+            cmdarg()
+            sys.exit()
+    elif(len(args) == 2):
+        cmdarg = cmd_opts.get(args[0], disp_usage)
+        if cmdarg() is False:
+            sys.exit()
+        ip_to_process = args[1]
+    else:
+        disp_usage()
+        sys.exit(1)
+
     convert_to = ip_handling.iutils.get_conversion_type(ip_to_process)
 
     return ip_to_process, convert_to
+
+def disp_usage():
+    print("Usage:\n\tpython {} {} {}".format(sys.argv[0], "([-h] | [-d] | [-u])", "(<ip6words-address-to-convert> | <ipv6-to-convert>)"))
+    return False
+
+def disp_help():
+    disp_usage()
+    print("\t [-h] ~ This dialog")
+    print("\t [-u] ~ The usage dialog")
+    print("\t [-d] ~ Delete the dilled (pickled) word list in order to regenerate it before executing")
+    return False
+
+def _delete_dill(fname="words.dill"):
+    try:
+        if os.path.isfile(fname):
+            os.remove(fname)
+        return True
+    except:
+        raise Exception("Error while checking/removing dill file")
 
 if __name__ == "__main__": main(sys.argv)
