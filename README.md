@@ -4,7 +4,7 @@ Converts IPv6 addresses to and from a user friendly format using words.
 
 #### Usage
 
-[![gif with examples][usage-gif-link]][usage-gif-link]
+<img align="center" src="https://raw.githubusercontent.com/lstn/ip6words/master/usage.gif" alt="Gif usage example">
 
 ```bash
 $ python ip6words.py -h
@@ -35,5 +35,3 @@ would alter this would be a change in the base nltk data, causing a shift in the
 must delete the file or run using the \[-d] argument.
 3. In practice, this means you will actually never have to download the nltk packages yourself if you never
 use the \[-d] argument and thus always load the wordlist from the dill.
-
-[usage-gif-link]: 	https://raw.githubusercontent.com/lstn/ip6words/master/usage.gif
