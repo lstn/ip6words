@@ -4,7 +4,7 @@ import os
 import dill
 from collections import OrderedDict
 
-import ip_handling
+from ip6w.src import ip_handling
 
 def nltk_download_packages():
     nltk.download("words")
@@ -66,6 +66,7 @@ def load_words(num_words):
     return words
 
 def dill_words(num_words, fname="words.dill"):
+    fname = os.path.join(os.path.dirname(os.path.realpath(__file__)), fname)
     try:
         if os.path.isfile(fname):
             words = dill.load(open(fname, "rb"))

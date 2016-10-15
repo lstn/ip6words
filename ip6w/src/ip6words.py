@@ -1,16 +1,14 @@
 import sys
 import os
 
-from iwords import dill_words
-import ip_handling
+from ip6w.src.iwords import dill_words
+from ip6w.src import ip_handling
 
 def conv_to_words(words, ip_to_process):
     ip = ip_handling.to_words.ipv6_arrayize(ip_to_process)
 
     ipwords = ip_handling.to_words.ip_to_words_arr(ip, words)
-
     ipwords = ip_handling.to_words.compress_words(ipwords)
-    # ip_handling.to_words.explode_words(cpr_wrds)
 
     ipstr = ip_handling.to_words.words_arr_to_str(ipwords)
 
@@ -76,6 +74,7 @@ def disp_help():
     return False
 
 def _delete_dill(fname="words.dill"):
+    os.path.join(os.path.dirname(os.path.realpath(__file__)), fname)
     try:
         if os.path.isfile(fname):
             os.remove(fname)
