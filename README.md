@@ -15,7 +15,7 @@ $ python ip6words.py selecting.exporters.passively.players.rings.rustled.birds.c
 #### Requirements
 
 - Python 3.3+ (NOT tested at all on Python 2)
-- nltk (*will download these packages on first run if you do not have them already, download them yourself beforehand if you'd like to choose the download directory *)
+- nltk (*will download these packages on first run if you do not have them already, download them yourself beforehand if you'd like to choose the download directory*)
  + words
  + brown
  + abc
