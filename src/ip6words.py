@@ -8,6 +8,10 @@ def conv_to_words(words, ip_to_process):
     ip = ip_handling.to_words.ipv6_arrayize(ip_to_process)
 
     ipwords = ip_handling.to_words.ip_to_words_arr(ip, words)
+
+    ipwords = ip_handling.to_words.compress_words(ipwords)
+    # ip_handling.to_words.explode_words(cpr_wrds)
+
     ipstr = ip_handling.to_words.words_arr_to_str(ipwords)
 
     print(ipstr)
@@ -15,6 +19,7 @@ def conv_to_words(words, ip_to_process):
 
 def conv_to_ipv6(words, ip_to_process):
     ip = ip_handling.to_ipv6.ip6words_arrayize(ip_to_process)
+    ip = ip_handling.to_words.explode_words(ip)
 
     iphex = ip_handling.to_ipv6.words_to_ipv6_arr(ip, words)
     ipstr = ip_handling.to_ipv6.iphex_arr_to_str(iphex)

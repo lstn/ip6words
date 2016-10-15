@@ -1,4 +1,5 @@
 import ipaddress
+import re
 
 class iutils:
     def get_osize():
@@ -18,11 +19,22 @@ class iutils:
                 return "words"
             elif len(ip.split(":")) == 8:
                 return "words"
-        
-        elif len(ip.split(".")) == 4:
-            raise Exception("Cannot convert IPv4 addresses!")
+
         elif len(ip.split(".")) == 8:
             return "ipv6"
+
+        __contains_alpha = lambda w: any(i.isalpha() for i in w)
+        i = 0
+
+        for word in ip.split("."):
+            if not __contains_alpha(word):
+                break
+            i += 1
+        if len(ip.split(".")) == i:
+            return "ipv6"
+
+        if len(ip.split(".")) == 4:
+            raise Exception("Cannot convert IPv4 addresses!")
 
         return None
 
@@ -47,6 +59,60 @@ class to_words:
     
     def words_arr_to_str(words_arr):
         return '.'.join(words_arr)
+
+    def compress_words(ipwords):
+        if len(ipwords) < 2 or len(ipwords) == len(set(ipwords)):
+            return ipwords
+        
+        repeat_ranges = {}
+        prev_val = None
+        prev_i = None
+        compressed = []
+
+        for i, val in enumerate(ipwords):
+            if prev_val == val:
+                repeat_ranges[prev_i] = i
+            else:
+                repeat_ranges[i] = i
+                prev_val = val
+                prev_i = i
+        
+        for i, key in enumerate(repeat_ranges.keys()):
+            if key == repeat_ranges[key]:
+                compressed += [ipwords[key]]
+            else:
+                num_reps = repeat_ranges[key] - key + 1 # +1 due to index
+                compressed += [ ipwords[key] + str(num_reps) ]
+
+        print(compressed)
+        return compressed
+        
+    def explode_words(ipwords):
+        if len(ipwords) == 8:
+            return ipwords
+
+        __contains_digits = lambda w: any(i.isdigit() for i in w)
+        compressed_idx = []
+        to_explode = {}
+        exploded = []
+
+        for i, val in enumerate(ipwords):
+            if __contains_digits(val):
+                compressed_idx += [i]
+
+        for idx in compressed_idx:
+            j = ipwords[idx][-1]
+            if j.isdigit():
+                to_explode[idx] = int(j)
+        
+        for i in range(len(ipwords)):
+            if i in to_explode.keys():
+                exploded += [ipwords[i][:-1] for j in range(to_explode[i])]
+            else:
+                exploded += [ipwords[i]]
+
+        print(exploded)
+        return exploded
 
 
 class to_ipv6:
