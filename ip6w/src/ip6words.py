@@ -44,7 +44,7 @@ def parse_args(args):
         "-d": _delete_dill,
         "-u": disp_usage,
         "-h": disp_help,
-        "-e": lambda x: True,
+        "-e": lambda: True,
     }
     explode_results = False
     if(len(args) == 1):
