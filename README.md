@@ -10,6 +10,13 @@ selecting.exporters.passively.players.rings.rustled.birds.consumable
 
 $ python ip6words.py selecting.exporters.passively.players.rings.rustled.birds.consumable
 2001:0db8:85a3:08d3:1319:8a2e:0370:7348
+
+$ python ip6words.py -h
+Usage:
+        python ip6words.py ([-h] | [-d] | [-u]) (<ip6words-address-to-convert> | <ipv6-to-convert>)
+         [-h] ~ This dialog
+         [-u] ~ The usage dialog
+         [-d] ~ Delete the dilled (pickled) word list in order to regenerate it before executing
 ```
 
 #### Requirements
