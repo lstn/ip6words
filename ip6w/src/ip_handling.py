@@ -138,7 +138,10 @@ class to_ipv6:
         
         return iphex
 
-    def iphex_arr_to_str(iphex_arr):
+    def iphex_arr_to_str(iphex_arr, explode_results):
         iphex = ':'.join(iphex_arr)
-        iphex = str(ipaddress.IPv6Address(iphex).compressed)
+        iphex = ipaddress.IPv6Address(iphex)
+
+        iphex = iphex.exploded if explode_results else iphex.compressed
+        iphex = str(iphex)
         return iphex

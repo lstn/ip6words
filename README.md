@@ -9,12 +9,23 @@ Converts IPv6 addresses to and from a user friendly format using words.
 </p>
 
 ```bash
-$ python ip6words.py -h
+# Script entry point "ip6words" can be used instead of manually launching the script through python if the package was installed.
+$ ip6words :: 
+the8
+
+$ ip6words -h
 Usage:
-        python ip6words.py ([-h] | [-d] | [-u]) (<ip6words-address-to-convert> | <ipv6-to-convert>)
+        python ip6words.py ([-h] | [-d] | [-u] | [-e]) (<ip6words-address-to-convert> | <ipv6-to-convert>)
          [-h] ~ This dialog
          [-u] ~ The usage dialog
          [-d] ~ Delete the dilled (pickled) word list in order to regenerate it before executing
+		 [-e] ~ Explode the results instead of compressing them
+```
+
+#### Install
+
+```bash
+pip install ip6words
 ```
 
 #### Requirements
