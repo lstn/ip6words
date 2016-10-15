@@ -69,20 +69,20 @@ def dill_words(num_words, fname="words.dill"):
     try:
         if os.path.isfile(fname):
             words = dill.load(open(fname, "rb"))
-            if(len(words) < ip_handling.get_ipv6_word_possibilities()):
+            if(len(words) < ip_handling.iutils.get_ipv6_word_possibilities()):
                 os.remove(fname)
                 raise Exception # go into except block to reload words
             return words
         else:
             words = load_words(num_words)
-            if(len(words) < ip_handling.get_ipv6_word_possibilities()):
+            if(len(words) < ip_handling.iutils.get_ipv6_word_possibilities()):
                 raise Exception # go into except block to reload words
             dill.dump(words, open(fname, "wb"))
             return words
     except:
         try:
             words = load_words(num_words)
-            if(len(words) < ip_handling.get_ipv6_word_possibilities()):
+            if(len(words) < ip_handling.iutils.get_ipv6_word_possibilities()):
                 raise Exception # go into except block to reload words
             dill.dump(words, open(fname, "wb"))
             return words
