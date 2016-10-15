@@ -4,7 +4,9 @@ Converts IPv6 addresses to and from a user friendly format using words.
 
 #### Usage
 
-<img align="center" src="https://raw.githubusercontent.com/lstn/ip6words/master/usage.gif" alt="Gif usage example">
+<p align="center">
+    <img src="https://raw.githubusercontent.com/lstn/ip6words/master/usage.gif" alt="Gif usage examples">
+</p>
 
 ```bash
 $ python ip6words.py -h
@@ -18,12 +20,12 @@ Usage:
 #### Requirements
 
 - Python 3.3+ (NOT tested at all on Python 2)
-- nltk (*will download these packages on first run if you do not have them already, download them yourself beforehand if you'd like to choose the download directory*)
- + words - \*optional ~ see note #3
- + brown - \*optional ~ see note #3
- + abc - \*optional ~ see note #3
- + inaugural - \*optional ~ see note #3
- + genesis - \*optional ~ see note #3
+- nltk <sub>(*will download these packages on first run that doesn't use dill, download them yourself beforehand if you'd like to choose the download directory*)</sub>
+ + words - <sub>*optional* ~ see note #3</sub>
+ + brown - <sub>*optional* ~ see note #3</sub>
+ + abc - <sub>*optional* ~ see note #3</sub>
+ + inaugural - <sub>*optional* ~ see note #3</sub>
+ + genesis - <sub>*optional* ~ see note #3</sub>
 - dill
 
 
