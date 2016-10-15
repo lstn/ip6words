@@ -1,4 +1,4 @@
-## ip6words
+# ip6words [![Pypi Version][pypi-version-badge]][pypi-version-link] [![Dependency CI][dependency-ci-badge]][dependency-ci-link]
 
 Converts IPv6 addresses to and from a user friendly format using words.
 
@@ -37,3 +37,8 @@ would alter this would be a change in the base nltk data, causing a shift in the
 must delete the file or run using the \[-d] argument.
 3. In practice, this means you will actually never have to download the nltk packages yourself if you never
 use the \[-d] argument and thus always load the wordlist from the dill.
+
+[pypi-version-badge]:	https://badge.fury.io/py/ip6words.svg
+[pypi-version-link]:	https://pypi.python.org/pypi/ip6words/
+[dependency-ci-badge]:	https://dependencyci.com/github/lstn/ip6words/badge
+[dependency-ci-link]:	https://dependencyci.com/github/lstn/ip6words
