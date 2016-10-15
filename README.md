@@ -4,13 +4,9 @@ Converts IPv6 addresses to and from a user friendly format using words.
 
 #### Usage
 
+[![gif with examples][usage-gif-link]][usage-gif-link]
+
 ```bash
-$ python ip6words.py 2001:0db8:85a3:08d3:1319:8a2e:0370:7348
-selecting.exporters.passively.players.rings.rustled.birds.consumable
-
-$ python ip6words.py selecting.exporters.passively.players.rings.rustled.birds.consumable
-2001:0db8:85a3:08d3:1319:8a2e:0370:7348
-
 $ python ip6words.py -h
 Usage:
         python ip6words.py ([-h] | [-d] | [-u]) (<ip6words-address-to-convert> | <ipv6-to-convert>)
@@ -39,3 +35,5 @@ would alter this would be a change in the base nltk data, causing a shift in the
 must delete the file or run using the \[-d] argument.
 3. In practice, this means you will actually never have to download the nltk packages yourself if you never
 use the \[-d] argument and thus always load the wordlist from the dill.
+
+[usage-gif-link]: 	https://raw.githubusercontent.com/lstn/ip6words/master/usage.gif

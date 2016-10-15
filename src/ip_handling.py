@@ -84,7 +84,6 @@ class to_words:
                 num_reps = repeat_ranges[key] - key + 1 # +1 due to index
                 compressed += [ ipwords[key] + str(num_reps) ]
 
-        print(compressed)
         return compressed
         
     def explode_words(ipwords):
@@ -111,7 +110,6 @@ class to_words:
             else:
                 exploded += [ipwords[i]]
 
-        print(exploded)
         return exploded
 
 
