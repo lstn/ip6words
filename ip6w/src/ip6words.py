@@ -13,31 +13,29 @@ def conv_to_words(words, ip_to_process, explode_results):
     if explode_results:
         ipwords = ip_handling.to_words.explode_words(ipwords)
 
-    ipstr = ip_handling.to_words.words_arr_to_str(ipwords)
-
-    print(ipstr)
-    return ipstr
+    return ip_handling.to_words.words_arr_to_str(ipwords)
 
 def conv_to_ipv6(words, ip_to_process, explode_results):
     ip = ip_handling.to_ipv6.ip6words_arrayize(ip_to_process)
     ip = ip_handling.to_words.explode_words(ip)
 
     iphex = ip_handling.to_ipv6.words_to_ipv6_arr(ip, words)
-    ipstr = ip_handling.to_ipv6.iphex_arr_to_str(iphex, explode_results)
+    return ip_handling.to_ipv6.iphex_arr_to_str(iphex, explode_results)
 
-    print(ipstr)
-    return ipstr
+def load_words():
+    return dill_words(ip_handling.iutils.get_ipv6_word_possibilities() + 1)
 
 def main(argv):
     ip_to_process, convert_to, explode_results = parse_args(argv[1:])
-    words = dill_words(ip_handling.iutils.get_ipv6_word_possibilities()+1)
-    
+    words = load_words()
+
     if convert_to == "words":
-        return conv_to_words(words, ip_to_process, explode_results)
+        res = conv_to_words(words, ip_to_process, explode_results)
     elif convert_to == "ipv6":
-        return conv_to_ipv6(words, ip_to_process, explode_results)
+        res = conv_to_ipv6(words, ip_to_process, explode_results)
     else:
         raise Exception("Could not determine the type of IP being queried")
+    print(res)
     
 def parse_args(args):
     cmd_opts = {
