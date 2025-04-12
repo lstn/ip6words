@@ -36,6 +36,7 @@ def main(argv):
     else:
         raise Exception("Could not determine the type of IP being queried")
     print(res)
+    return res
     
 def parse_args(args):
     cmd_opts = {
